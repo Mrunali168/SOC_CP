@@ -1,0 +1,48 @@
+Code : Approach 1
+
+#include <iostream>
+using namespace std
+
+int main(){
+
+int n;
+cin >>n;
+
+string a,b;
+
+while(n--){
+cin >>a>>b;
+
+a[0] = a[0] + b[0];
+b[0] = a[0] - b[0];
+a[0] = a[0] - b[0];
+
+cout << a << " " << b << endl;
+
+}
+}
+
+Code : Approach  2 [learned from internet]
+
+#include <iostream>
+using namespace std
+
+int main(){
+
+int n;
+cin >> n;
+
+while(n--){
+
+string a,b;
+cin >> a >> b;
+
+string new_a,new_b;
+
+new_a = b[0] + a.substr(1);
+new_b = a[0] + b.substr(1);
+
+cout << new_a << " " << new_b << endl;
+
+}
+}
