@@ -1,1 +1,43 @@
+Code: Learned from internet and video solution.
+class Solution {
+public:
+    vector<int> asteroidCollision(vector<int>& asteroids) {
+        stack<int> st;  // Use a stack to simulate the collision process
+
+        for (int asteroid : asteroids) {
+            if (asteroid > 0) {
+                
+                st.push(asteroid);
+            } else {
+                
+                while (!st.empty() && st.top() > 0 && st.top() < -asteroid) {
+                    
+                    st.pop();
+                }
+
+                if (st.empty() || st.top() < 0) {
+                    
+                    st.push(asteroid);
+                }
+
+                if (!st.empty() && st.top() == -asteroid) {
+                   
+                    st.pop();
+                }
+            }
+        }
+
+        
+        vector<int> result(st.size());
+        int index = st.size() - 1;
+
+        while (!st.empty()) {
+          
+            result[index--] = st.top();
+            st.pop();
+        }
+
+        return result;        
+    }
+};
 
