@@ -1,0 +1,30 @@
+ #include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    while (n--) {
+        int a, b, c, d;
+        cin >> a >> b >> c >> d;
+
+        // Determine the greater and smaller values for the first set
+        int high1 = max(a, b);
+        int low1 = min(a, b);
+
+        // Determine the greater and smaller values for the second set
+        int high2 = max(c, d);
+        int low2 = min(c, d);
+
+               
+if ((high1 < high2 && low1 < low2) || (high1 > high2 && low1 > low2)) {
+            cout << "YES\n";
+        } else {
+            cout << "NO\n";
+        }
+    }
+
+        return 0;
+}
+
