@@ -1,0 +1,46 @@
+Code : 
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+       
+        int min = arr[0], max = arr[0];
+        for (int i = 1; i < arr.size(); ++i) {
+            if (arr[i] < min) min = arr[i];
+            if (arr[i] > max) max = arr[i];
+        }
+
+
+       
+        int range = max - min + 1;
+        vector<int> frequency(range, 0);
+        for (int i = 0; i < arr.size(); ++i) {
+            frequency[arr[i] - min]++;
+        }
+
+
+       
+        int maxF = 0;
+        for (int i = 0; i < range; ++i) {
+            if (frequency[i] > maxF) maxF = frequency[i];
+        }
+
+
+        vector<int> uniqueFrequency(maxF + 1, 0);
+        for (int i = 0; i < range; ++i) {
+            if (frequency[i] > 0) {
+                uniqueFrequency[frequency[i]]++;
+            }
+        }
+
+
+       
+        for (int i = 0; i <= maxF; ++i) {
+            if (uniqueFrequency[i] > 1) {
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+};
